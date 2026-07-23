@@ -262,6 +262,21 @@
   footer .plate { border-color: rgba(255,255,255,0.14); background: transparent; margin-top: 56px; }
   footer .plate figcaption { border-top-color: rgba(255,255,255,0.14); color: rgba(232,228,240,0.55); }
   footer .plate figcaption em { color: var(--cyan); }
+  /* phones: full-bleed + taller crop so the plates actually carry weight */
+  @media (max-width: 860px) {
+    .plate {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      border-left: 0; border-right: 0;
+    }
+    .plate img { aspect-ratio: 4 / 3; height: auto; object-fit: cover; }
+    .hero-plate { margin-top: 44px; }
+  }
+  @media (max-width: 520px) {
+    .plate img { aspect-ratio: 1 / 1; }
+    /* keep each subject in frame under the tighter crop */
+    .hero-plate img { object-position: 78% center; }
+  }
 
   /* reveal on scroll */
   .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
